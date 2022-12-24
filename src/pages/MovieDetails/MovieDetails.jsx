@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { movieAPI } from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
@@ -47,11 +47,10 @@ export const MovieDetails = () => {
                     </div>
                     <div className={css.additionalInfo}>
                         <h5 className={css.secondaryTitle}>Additional Information:</h5>
-                        <ul className={css.list}>
-                            <li className={css.link}>Cast</li>
-                            <li className={css.link}>Reviews</li>
-                        </ul>
+                        <Link to={`/movies/${movie.id}/cast`} className={css.link}>Cast</Link>
+                        <Link to={`/movies/${movie.id}/reviews`} className={css.link}>Reviews</Link>
                     </div>
+                    <Outlet />
                 </div>
             }
             {loading && <Loader />}
