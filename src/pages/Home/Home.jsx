@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { movieAPI } from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
+import { TrendingListItem } from 'components/TrendingListItem/TrendingListItem';
 
 export const Home = () => {
     const [trending, setTrending] = useState(null);
@@ -27,10 +28,12 @@ export const Home = () => {
             <h2 className={css.trending__header}>Trending today</h2>
             <ul className={css.trending__list}>
                 {trending && trending.map(movie => {
-                    return <div key={movie.id}>{movie.title}</div>
+                    return <TrendingListItem
+                        key={movie.id}
+                        name={movie.title}
+                    />
                 })}
                 {loading && <Loader />}
-                {/* тут будем мапать список айтемов */}
             </ul>
         </section>
     )

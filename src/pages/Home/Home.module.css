@@ -8,3 +8,7 @@
     font-weight: 400;
     color: rgb(0, 49, 0);
 }
+
+.trending__list {
+    list-style: circle;
+}
