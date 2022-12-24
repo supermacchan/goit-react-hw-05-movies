@@ -31,6 +31,7 @@ export const Home = () => {
                     return <TrendingListItem
                         key={movie.id}
                         name={movie.title}
+                        id={movie.id}
                     />
                 })}
                 {loading && <Loader />}

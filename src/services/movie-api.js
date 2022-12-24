@@ -10,7 +10,7 @@ async function fetchTrending() {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            // console.log(response.data.results);
+            console.log(response.data.results);
             return response.data.results;
         }
 
