@@ -16,8 +16,7 @@ export const TrendingListItem = ({ name, id }) => {
     return (
         <li className={css.item}>
             <BiStar className={css.icon} />
-            <Link to={`/movies/${id}`}>{name}</Link>
-            <span>{name}</span>
+            <Link to={`/movies/${id}`} className={css.link}>{name}</Link>
         </li>
     )
 };

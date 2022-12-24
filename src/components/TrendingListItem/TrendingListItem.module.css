@@ -14,3 +14,14 @@
     margin-right: 13px;
     color: green;
 }
+
+.link {
+    text-decoration: underline;
+    color: black;
+}
+
+.link:hover,
+.link:focus {
+    color: darkgreen;
+    text-decoration: none;
+}
