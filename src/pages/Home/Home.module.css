@@ -1,0 +1,10 @@
+.trending {
+    padding: 30px 20px;
+}
+
+.trending__header {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 400;
+    color: rgb(0, 49, 0);
+}
