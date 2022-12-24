@@ -1,0 +1,16 @@
+.item {
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.item:first-child {
+    margin-top: 0;
+}
+
+.icon {
+    display: inline;
+    margin-right: 13px;
+    color: green;
+}
