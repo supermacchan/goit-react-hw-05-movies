@@ -1,4 +1,6 @@
 import css from './Home.module.css';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify/dist/components';
 import { movieAPI } from 'services/movie-api';
 
 export const Home = () => {
