@@ -26,10 +26,10 @@ export const MovieDetails = () => {
         <>
             {movie && 
                 <div className={css.movieDetails}>
-                    <button type="button" className={css.goBackBtn}>
-                        <BsArrowLeftCircleFill className={css.backArrow}/>
+                    <Link to="/" className={css.goBackBtn}>
+                        <BsArrowLeftCircleFill className={css.backArrow} />
                         Go back
-                    </button>
+                    </Link>
                     <div className={css.basicInfo}>
                         <img
                             src={`${BASE_IMG_URL}${movie.poster_path}`}

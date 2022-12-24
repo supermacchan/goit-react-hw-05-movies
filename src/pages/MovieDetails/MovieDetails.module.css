@@ -17,6 +17,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
+    text-decoration: none;
 }
 
 .backArrow {
