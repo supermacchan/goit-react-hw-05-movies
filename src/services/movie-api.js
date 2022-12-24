@@ -6,11 +6,12 @@ const TRENDING = '/trending/movie/day';
 
 async function fetchTrending() {
     try {
-        const fetchUrl = `${{ BASE_URL }}${TRENDING}?api_key=${API_KEY}`;
+        const fetchUrl = `${ BASE_URL }${TRENDING}?api_key=${API_KEY}`;
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            return response.data;
+            console.log(response.data.results);
+            return response.data.results;
         }
 
         return Promise.reject(
