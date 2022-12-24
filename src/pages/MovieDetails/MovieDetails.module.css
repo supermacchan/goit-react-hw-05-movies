@@ -1,0 +1,103 @@
+.movieDetails {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.goBackBtn {
+    padding: 5px 15px;
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    background-color: darkgreen;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.backArrow {
+    margin-right: 6px;
+}
+
+.goBackBtn:hover,
+.goBackBtn:focus {
+    background-color: rgb(196, 245, 200);
+    color: darkgreen;
+    border: 1px solid darkgreen;
+}
+
+.basicInfo {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    padding-right: 25px;    
+
+    border: 2px solid darkgreen;
+    border-radius: 4px;
+}
+
+.movieInfo {
+    padding: 25px 0;
+}
+
+.name {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: rgb(0, 46, 0);
+    font-size: 28px;
+}
+
+.description {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 17px;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: darkgreen;
+    font-size: 22px;
+}
+
+.additionalInfo {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.secondaryTitle {
+    margin: 0;
+    color: darkgreen;
+    font-size: 22px;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.link {
+    padding: 5px 15px;
+    margin-left: 15px;
+    background-color: darkgreen;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.link:hover,
+.link:focus {
+    background-color: rgb(196, 245, 200);
+    color: darkgreen;
+    border: 1px solid darkgreen;
+}
