@@ -67,7 +67,7 @@ async function fetchReviews(id) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            console.log(response.data);
+            // console.log(response.data);
             return response.data;
         }
 

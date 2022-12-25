@@ -19,8 +19,9 @@ export const Reviews = () => {
             .then(result => {
                 if (result.results.length > 0) {
                     setReviews(result.results);
+                } else {
+                    setEmpty(true);
                 }
-                setEmpty(true);
             })
             .catch(error => toast.error(`${error.message}`))
             .finally(() => { setLoading(false) });
@@ -42,7 +43,7 @@ export const Reviews = () => {
                     );
                 })
             }
-            
+
             {empty &&
                 <p className={css.empty}>We don't have any reviews for this movie.</p>
             }

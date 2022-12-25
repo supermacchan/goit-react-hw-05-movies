@@ -45,7 +45,10 @@ export const Cast = () => {
                             <div>
                                 <p className={css.name}>{actor.name}</p>
                                 <p className={css.character}>Character:</p>
-                                <p className={css.characterName}>{actor.character}</p>
+                                {actor.character
+                                    ? <p className={css.characterName}>{actor.character}</p>
+                                    : <p className={css.characterName}>cameo</p>
+                                } 
                             </div>
                         </li>
                     );
