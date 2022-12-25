@@ -21,8 +21,6 @@ export const Cast = () => {
             .finally(() => { setLoading(false) });
     }, [movieId]);
 
-    // console.log(cast); 
-
     return (
         <ul className={css.castList}>
             {cast && 

@@ -14,7 +14,6 @@ async function fetchTrending() {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            // console.log(response.data.results);
             return response.data.results;
         }
 
@@ -32,7 +31,6 @@ async function fetchMovieDetails(id) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            // console.log(response.data);
             return response.data;
         }
 
@@ -50,7 +48,6 @@ async function fetchCast(id) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            // console.log(response.data);
             return response.data;
         }
 
@@ -68,7 +65,6 @@ async function fetchReviews(id) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            // console.log(response.data);
             return response.data;
         }
 
@@ -86,7 +82,6 @@ async function searchMovies(query) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            console.log(response.data);
             return response.data;
         }
 

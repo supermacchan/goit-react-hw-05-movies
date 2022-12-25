@@ -62,8 +62,6 @@ export const Movies = () => {
             });
     }, [query]);
 
-    console.log(movies);
-
     return (
         <>
             {location.pathname === '/movies' &&

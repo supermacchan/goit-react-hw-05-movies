@@ -27,8 +27,6 @@ export const Reviews = () => {
             .finally(() => { setLoading(false) });
     }, [movieId]);
 
-    // console.log(reviews); 
-
     return (
         <ul className={css.reviewsList}>
             {loading && <Loader />}

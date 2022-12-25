@@ -48,8 +48,20 @@ export const MovieDetails = () => {
                     </div>
                     <div className={css.additionalInfo}>
                         <h5 className={css.secondaryTitle}>Additional Information:</h5>
-                        <Link to={`/movies/${movie.id}/cast`} className={css.link}>Cast</Link>
-                        <Link to={`/movies/${movie.id}/reviews`} className={css.link}>Reviews</Link>
+                        <Link
+                            to={`/movies/${movie.id}/cast`}
+                            className={css.link}
+                            state={{from: location.state.from}}
+                        >
+                            Cast
+                        </Link>
+                        <Link
+                            to={`/movies/${movie.id}/reviews`}
+                            className={css.link}
+                            state={{from: location.state.from}}
+                        >
+                            Reviews
+                        </Link>
                     </div>
                     <Outlet />
                 </div>
