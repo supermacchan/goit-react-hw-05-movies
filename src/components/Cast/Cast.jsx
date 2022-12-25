@@ -21,7 +21,7 @@ export const Cast = () => {
             .finally(() => { setLoading(false) });
     }, [movieId]);
 
-    console.log(cast); 
+    // console.log(cast); 
 
     return (
         <ul className={css.castList}>
@@ -34,8 +34,11 @@ export const Cast = () => {
                                 alt=""
                                 width="180"
                                 className={css.photo} />
-                            <p className={css.name}>{actor.name}</p>
-                            <p className={css.character}>Character: {actor.character}</p>
+                            <div>
+                                <p className={css.name}>{actor.name}</p>
+                                <p className={css.character}>Character:</p>
+                                <p className={css.characterName}>{actor.character}</p>
+                            </div>
                         </li>
                     );
                 })
