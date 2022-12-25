@@ -5,6 +5,7 @@ const API_KEY = '69fc77f6620d7e54166b698911b2babb';
 const TRENDING = '/trending/movie/day';
 const MOVIE_DETAILS = '/movie';
 const CAST = '/credits';
+const REVIEWS = '/reviews';
 
 async function fetchTrending() {
     try {
@@ -60,8 +61,28 @@ async function fetchCast(id) {
     }
 };
 
+async function fetchReviews(id) {
+    try {
+        const fetchUrl = `${ BASE_URL }${MOVIE_DETAILS}/${id}${REVIEWS}?api_key=${API_KEY}`;
+        const response = await axios.get(fetchUrl);
+
+        if (response) {
+            console.log(response.data);
+            return response.data;
+        }
+
+        return Promise.reject(
+            new Error('Oops! Something went wrong...')
+        );
+    } catch (error) {
+        return error;
+    }
+};
+
+
 export const movieAPI = {
     fetchTrending,
     fetchMovieDetails,
     fetchCast,
+    fetchReviews,
 };
