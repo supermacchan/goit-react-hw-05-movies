@@ -62,6 +62,12 @@ export const Movies = () => {
             });
     }, [query]);
 
+    useEffect(() => {
+        if (location.pathname === '/movies') {
+            setMovies(null);
+        }
+    }, [location])
+
     return (
         <>
             {location.pathname === '/movies' &&
