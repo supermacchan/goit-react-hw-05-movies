@@ -1,30 +1,37 @@
 import css from './Movies.module.css';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 export const Movies = () => {
     const location = useLocation();
     // console.log(location);
     const [value, setValue] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const handleInputChange = event => {
         const inputValue = event.currentTarget.value.toLowerCase();
+        changeQuery(inputValue);
         setValue(inputValue);
     };
 
     const handleFormSubmit = event => {
         event.preventDefault();
         if (value.trim() === '') {
-            // toast.error('Enter search query.');
+            toast.error('Enter search query.');
             reset();
             return;
         }
         // onSubmit(value);
         reset();
     };
+
+    const changeQuery = value => {
+        setSearchParams({ query: value });
+        console.log(value);
+    }
 
     const reset = () => {
         setValue('');
