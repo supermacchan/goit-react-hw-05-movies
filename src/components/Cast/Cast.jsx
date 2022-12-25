@@ -29,11 +29,19 @@ export const Cast = () => {
                 cast.map(actor => {
                     return (
                         <li className={css.castMember} key={actor.cast_id}>
-                            <img
-                                src={`${BASE_IMG_URL}${actor.profile_path}`}
-                                alt=""
-                                width="180"
-                                className={css.photo} />
+                            {actor.profile_path
+                                ? <img
+                                    src={`${BASE_IMG_URL}${actor.profile_path}`}
+                                    alt=""
+                                    width="180"
+                                    className={css.photo} 
+                                />
+                                : <img
+                                    src="https://dummyimage.com/500x750/ffffff/083004.jpg&text=No+Photo"
+                                    alt=""
+                                    width="180"
+                                    className={css.photo}
+                                />}
                             <div>
                                 <p className={css.name}>{actor.name}</p>
                                 <p className={css.character}>Character:</p>
