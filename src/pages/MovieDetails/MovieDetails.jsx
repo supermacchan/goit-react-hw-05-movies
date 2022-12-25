@@ -20,7 +20,7 @@ export const MovieDetails = () => {
             .then(result => setMovie(result))
             .catch(error => toast.error(`${error.message}`))
             .finally(() => { setLoading(false) });
-    }, [movieId])
+    }, [movieId]);
 
     return (
         <>

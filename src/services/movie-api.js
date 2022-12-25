@@ -4,6 +4,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const API_KEY = '69fc77f6620d7e54166b698911b2babb';
 const TRENDING = '/trending/movie/day';
 const MOVIE_DETAILS = '/movie';
+const CAST = '/credits';
 
 async function fetchTrending() {
     try {
@@ -11,7 +12,7 @@ async function fetchTrending() {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            console.log(response.data.results);
+            // console.log(response.data.results);
             return response.data.results;
         }
 
@@ -29,7 +30,25 @@ async function fetchMovieDetails(id) {
         const response = await axios.get(fetchUrl);
 
         if (response) {
-            console.log(response.data);
+            // console.log(response.data);
+            return response.data;
+        }
+
+        return Promise.reject(
+            new Error('Oops! Something went wrong...')
+        );
+    } catch (error) {
+        return error;
+    }
+};
+
+async function fetchCast(id) {
+    try {
+        const fetchUrl = `${ BASE_URL }${MOVIE_DETAILS}/${id}${CAST}?api_key=${API_KEY}`;
+        const response = await axios.get(fetchUrl);
+
+        if (response) {
+            // console.log(response.data);
             return response.data;
         }
 
@@ -44,4 +63,5 @@ async function fetchMovieDetails(id) {
 export const movieAPI = {
     fetchTrending,
     fetchMovieDetails,
+    fetchCast,
 };
