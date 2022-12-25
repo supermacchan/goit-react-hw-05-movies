@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import css from "./Header.module.css";
 import { MdMovieFilter } from 'react-icons/md';
+import css from "./Header.module.css";
 
 export const Header = () => {
     return (

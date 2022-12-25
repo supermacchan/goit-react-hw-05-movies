@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
+import movieAPI from 'services/movie-api';
 import css from './Cast.module.css';
 
 
@@ -10,6 +10,7 @@ const Cast = () => {
     const { movieId } = useParams();
     const [cast, setCast] = useState(null);
     const [loading, setLoading] = useState(false);
+    
     const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
     useEffect(() => {

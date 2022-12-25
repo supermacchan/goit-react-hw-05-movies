@@ -1,9 +1,9 @@
-import css from './Home.module.css';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
+import movieAPI from 'services/movie-api';
 import ListItem from 'components/ListItem/ListItem';
+import css from './Home.module.css';
 
 const Home = () => {
     const [trending, setTrending] = useState(null);
@@ -21,7 +21,6 @@ const Home = () => {
         setLoading(true);
         generateTrendingList();
     }, []);
-
 
     return (
         <section className={css.trending}>

@@ -1,18 +1,19 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
 import { BsArrowLeftCircleFill } from 'react-icons/bs';
+import movieAPI from 'services/movie-api';
 import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
-    const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
     const location = useLocation();
 
+    const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+    
     useEffect(() => {
         setLoading(true);
         movieAPI

@@ -1,12 +1,11 @@
-import css from './Movies.module.css';
+import { useState, useEffect, Suspense } from 'react';
 import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { toast } from 'react-toastify';
-import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
+import movieAPI from 'services/movie-api';
 import ListItem from 'components/ListItem/ListItem';
-
+import css from './Movies.module.css';
 
 const Movies = () => {
     const location = useLocation();
@@ -98,7 +97,9 @@ const Movies = () => {
                     </ul>
                 </>
             }
-            <Outlet />
+            <Suspense fallback={<Loader />}>
+                <Outlet />
+            </Suspense>
         </>
     );
 };
