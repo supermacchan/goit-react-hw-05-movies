@@ -1,13 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { movieAPI } from 'services/movie-api';
+import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
 import { BsArrowLeftCircleFill } from 'react-icons/bs';
 import css from './MovieDetails.module.css';
 
-
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -25,7 +24,7 @@ export const MovieDetails = () => {
 
     return (
         <>
-            {movie && 
+            {movie &&
                 <div className={css.movieDetails}>
                     <Link to={location.state.from} className={css.goBackBtn}>
                         <BsArrowLeftCircleFill className={css.backArrow} />
@@ -43,7 +42,7 @@ export const MovieDetails = () => {
                             <h3 className={css.title}>Overview</h3>
                             <p className={css.description}>{movie.overview}</p>
                             <h4 className={css.title}>Genres</h4>
-                            <p className={css.description}>{movie.genres.map(genre => { return `${genre.name} `})}</p>
+                            <p className={css.description}>{movie.genres.map(genre => { return `${genre.name} ` })}</p>
                         </div>
                     </div>
                     <div className={css.additionalInfo}>
@@ -51,22 +50,26 @@ export const MovieDetails = () => {
                         <Link
                             to={`/movies/${movie.id}/cast`}
                             className={css.link}
-                            state={{from: location.state.from}}
+                            state={{ from: location.state.from }}
                         >
                             Cast
                         </Link>
                         <Link
                             to={`/movies/${movie.id}/reviews`}
                             className={css.link}
-                            state={{from: location.state.from}}
+                            state={{ from: location.state.from }}
                         >
                             Reviews
                         </Link>
                     </div>
-                    <Outlet />
+                    <Suspense fallback={<Loader />}>
+                        <Outlet />
+                    </Suspense>
                 </div>
             }
             {loading && <Loader />}
-        </>     
+        </>
     )
-}
+};
+
+export default MovieDetails;

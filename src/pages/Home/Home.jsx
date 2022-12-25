@@ -1,11 +1,11 @@
 import css from './Home.module.css';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { movieAPI } from 'services/movie-api';
+import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
-import { ListItem } from 'components/ListItem/ListItem';
+import ListItem from 'components/ListItem/ListItem';
 
-export const Home = () => {
+const Home = () => {
     const [trending, setTrending] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -39,3 +39,5 @@ export const Home = () => {
         </section>
     )
 };
+
+export default Home;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import { BiStar } from 'react-icons/bi';
 
-export const ListItem = ({ name, id }) => {
+const ListItem = ({ name, id }) => {
     const location = useLocation();
 
     return (
@@ -24,3 +24,5 @@ ListItem.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
 }
+
+export default ListItem;

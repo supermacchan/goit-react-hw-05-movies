@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { movieAPI } from 'services/movie-api';
+import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
 import css from './Reviews.module.css';
 
 
-export const Reviews = () => {
+const Reviews = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState(null);
     const [empty, setEmpty] = useState(false);
@@ -47,4 +47,6 @@ export const Reviews = () => {
             }
         </ul>
     );
-}
+};
+
+export default Reviews;

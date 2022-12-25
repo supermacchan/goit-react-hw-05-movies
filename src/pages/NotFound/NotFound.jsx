@@ -1,7 +1,7 @@
 import css from './NotFound.module.css';
 import { Link } from 'react-router-dom';
 
-export const NotFound = () => {
+const NotFound = () => {
     return (
         <>
             <h2 className={css.title}>Oops! Page not found.</h2>
@@ -12,3 +12,5 @@ export const NotFound = () => {
         </>
     )
 }
+
+export default NotFound;

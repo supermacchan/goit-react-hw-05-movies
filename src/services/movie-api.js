@@ -93,10 +93,12 @@ async function searchMovies(query) {
     }
 }
 
-export const movieAPI = {
+const movieAPI = {
     fetchTrending,
     fetchMovieDetails,
     fetchCast,
     fetchReviews,
     searchMovies,
 };
+
+export default movieAPI;

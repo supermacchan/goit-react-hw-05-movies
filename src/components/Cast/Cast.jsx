@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { movieAPI } from 'services/movie-api';
+import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
 import css from './Cast.module.css';
 
 
-export const Cast = () => {
+const Cast = () => {
     const { movieId } = useParams();
     const [cast, setCast] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -23,7 +23,7 @@ export const Cast = () => {
 
     return (
         <ul className={css.castList}>
-            {cast && 
+            {cast &&
                 cast.map(actor => {
                     return (
                         <li className={css.castMember} key={actor.cast_id}>
@@ -32,7 +32,7 @@ export const Cast = () => {
                                     src={`${BASE_IMG_URL}${actor.profile_path}`}
                                     alt=""
                                     width="180"
-                                    className={css.photo} 
+                                    className={css.photo}
                                 />
                                 : <img
                                     src="https://dummyimage.com/500x750/C4F5C8/083004.jpg&text=No+Photo"
@@ -46,7 +46,7 @@ export const Cast = () => {
                                 {actor.character
                                     ? <p className={css.characterName}>{actor.character}</p>
                                     : <p className={css.characterName}>cameo</p>
-                                } 
+                                }
                             </div>
                         </li>
                     );
@@ -55,4 +55,6 @@ export const Cast = () => {
             {loading && <Loader />}
         </ul>
     );
-}
+};
+
+export default Cast;

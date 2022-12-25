@@ -3,12 +3,12 @@ import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { toast } from 'react-toastify';
-import { movieAPI } from 'services/movie-api';
+import movieAPI from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
-import { ListItem } from 'components/ListItem/ListItem';
+import ListItem from 'components/ListItem/ListItem';
 
 
-export const Movies = () => {
+const Movies = () => {
     const location = useLocation();
     const [value, setValue] = useState('');
     const [movies, setMovies] = useState(null);
@@ -54,7 +54,7 @@ export const Movies = () => {
                 } else {
                     setMovies(null);
                     toast.warning("No matches found.");
-                } 
+                }
             })
             .catch(error => toast.error(`${error.message}`))
             .finally(() => {
@@ -72,33 +72,35 @@ export const Movies = () => {
         <>
             {location.pathname === '/movies' &&
                 <>
-                <form className={css.searchForm} onSubmit={handleFormSubmit}>
-                    <input
-                        type="text"
-                        name="query"
-                        placeholder="Enter movie name"
-                        className={css.input}
-                        onChange={handleInputChange}
-                        value={value}
-                    />
-                    <button type="submit" className={css.button}>
-                        <BsSearch className={css.buttonIcon} />
-                        Search
-                    </button>
-                </form>
-                <ul className={css.trending__list}>
-                {movies && movies.map(movie => {
-                    return <ListItem
-                        key={movie.id}
-                        name={movie.title}
-                        id={movie.id}
-                    />
-                })}
-                {loading && <Loader />}
-                </ul>
-            </>
+                    <form className={css.searchForm} onSubmit={handleFormSubmit}>
+                        <input
+                            type="text"
+                            name="query"
+                            placeholder="Enter movie name"
+                            className={css.input}
+                            onChange={handleInputChange}
+                            value={value}
+                        />
+                        <button type="submit" className={css.button}>
+                            <BsSearch className={css.buttonIcon} />
+                            Search
+                        </button>
+                    </form>
+                    <ul className={css.trending__list}>
+                        {movies && movies.map(movie => {
+                            return <ListItem
+                                key={movie.id}
+                                name={movie.title}
+                                id={movie.id}
+                            />
+                        })}
+                        {loading && <Loader />}
+                    </ul>
+                </>
             }
             <Outlet />
         </>
     );
-}
+};
+
+export default Movies;
