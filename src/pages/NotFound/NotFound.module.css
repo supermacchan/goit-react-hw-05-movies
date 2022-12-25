@@ -12,10 +12,10 @@
 
 .link {
     color: darkgreen;
-    text-decoration: none;
 }
 
 .link:hover,
 .link:focus {
     color: rgb(140, 173, 83);
+    text-decoration: none;
 }
