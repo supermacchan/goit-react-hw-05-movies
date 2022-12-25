@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Outlet, Link } from 'react-router-dom';
+import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { movieAPI } from 'services/movie-api';
 import { Loader } from 'components/Loader/Loader';
@@ -12,6 +12,7 @@ export const MovieDetails = () => {
     const [movie, setMovie] = useState(null);
     const [loading, setLoading] = useState(false);
     const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+    const location = useLocation();
 
     useEffect(() => {
         setLoading(true);
@@ -26,7 +27,7 @@ export const MovieDetails = () => {
         <>
             {movie && 
                 <div className={css.movieDetails}>
-                    <Link to="/" className={css.goBackBtn}>
+                    <Link to={location.state.from} className={css.goBackBtn}>
                         <BsArrowLeftCircleFill className={css.backArrow} />
                         Go back
                     </Link>
