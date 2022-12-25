@@ -2,7 +2,7 @@ import css from './Movies.module.css';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 
 export const Movies = () => {
@@ -18,7 +18,7 @@ export const Movies = () => {
     const handleFormSubmit = event => {
         event.preventDefault();
         if (value.trim() === '') {
-            toast.error('Enter search query.');
+            // toast.error('Enter search query.');
             reset();
             return;
         }
