@@ -1,19 +1,23 @@
 import css from './Movies.module.css';
 import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { toast } from 'react-toastify';
+import { movieAPI } from 'services/movie-api';
+import { Loader } from 'components/Loader/Loader';
+import { ListItem } from 'components/ListItem/ListItem';
 
 
 export const Movies = () => {
     const location = useLocation();
-    // console.log(location);
     const [value, setValue] = useState('');
+    const [movies, setMovies] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get('query') ?? '';
 
     const handleInputChange = event => {
         const inputValue = event.currentTarget.value.toLowerCase();
-        changeQuery(inputValue);
         setValue(inputValue);
     };
 
@@ -24,22 +28,46 @@ export const Movies = () => {
             reset();
             return;
         }
-        // onSubmit(value);
+        changeQuery(value);
         reset();
     };
 
     const changeQuery = value => {
-        setSearchParams({ query: value });
-        console.log(value);
+        setSearchParams(value !== '' ? { query: value } : {});
     }
 
     const reset = () => {
         setValue('');
     };
 
+    useEffect(() => {
+        if (!query) {
+            return;
+        }
+
+        setLoading(true);
+        movieAPI
+            .searchMovies(query)
+            .then(result => {
+                if (result.results.length > 0) {
+                    setMovies(result.results);
+                } else {
+                    setMovies(null);
+                    toast.warning("No matches found.");
+                } 
+            })
+            .catch(error => toast.error(`${error.message}`))
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [query]);
+
+    console.log(movies);
+
     return (
         <>
             {location.pathname === '/movies' &&
+                <>
                 <form className={css.searchForm} onSubmit={handleFormSubmit}>
                     <input
                         type="text"
@@ -47,12 +75,24 @@ export const Movies = () => {
                         placeholder="Enter movie name"
                         className={css.input}
                         onChange={handleInputChange}
+                        value={value}
                     />
-                <button type="submit" className={css.button}>
-                    <BsSearch className={css.buttonIcon} />
-                    Search
-                </button>
-            </form>
+                    <button type="submit" className={css.button}>
+                        <BsSearch className={css.buttonIcon} />
+                        Search
+                    </button>
+                </form>
+                <ul className={css.trending__list}>
+                {movies && movies.map(movie => {
+                    return <ListItem
+                        key={movie.id}
+                        name={movie.title}
+                        id={movie.id}
+                    />
+                })}
+                {loading && <Loader />}
+                </ul>
+            </>
             }
             <Outlet />
         </>
