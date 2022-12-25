@@ -15,7 +15,11 @@ export const Reviews = () => {
         setLoading(true);
         movieAPI
             .fetchReviews(movieId)
-            .then(result => setReviews(result.results))
+            .then(result => {
+                if (result.results.length > 0) {
+                    setReviews(result.results);
+                }
+            })
             .catch(error => toast.error(`${error.message}`))
             .finally(() => { setLoading(false) });
     }, [movieId]);
@@ -24,6 +28,7 @@ export const Reviews = () => {
 
     return (
         <ul className={css.reviewsList}>
+            {loading && <Loader />}
             {reviews ?
                 reviews.map(review => {
                     return (
@@ -33,10 +38,8 @@ export const Reviews = () => {
                         </li>
                     );
                 })
-                // NEEDS ADJUSTING!!!
                 : <p className={css.empty}>We don't have any reviews for this movie.</p>
             }
-            {loading && <Loader />}
         </ul>
     );
 }
