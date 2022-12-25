@@ -9,6 +9,7 @@ import css from './Reviews.module.css';
 export const Reviews = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState(null);
+    const [empty, setEmpty] = useState(false);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -19,6 +20,7 @@ export const Reviews = () => {
                 if (result.results.length > 0) {
                     setReviews(result.results);
                 }
+                setEmpty(true);
             })
             .catch(error => toast.error(`${error.message}`))
             .finally(() => { setLoading(false) });
@@ -29,7 +31,8 @@ export const Reviews = () => {
     return (
         <ul className={css.reviewsList}>
             {loading && <Loader />}
-            {reviews ?
+
+            {reviews &&
                 reviews.map(review => {
                     return (
                         <li className={css.review} key={review.id}>
@@ -38,7 +41,10 @@ export const Reviews = () => {
                         </li>
                     );
                 })
-                : <p className={css.empty}>We don't have any reviews for this movie.</p>
+            }
+            
+            {empty &&
+                <p className={css.empty}>We don't have any reviews for this movie.</p>
             }
         </ul>
     );
