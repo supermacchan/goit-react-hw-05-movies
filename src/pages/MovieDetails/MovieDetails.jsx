@@ -27,7 +27,7 @@ const MovieDetails = () => {
         <>
             {movie &&
                 <div className={css.movieDetails}>
-                    <Link to={location.state.from} className={css.goBackBtn}>
+                    <Link to={location.state?.from ?? '/movies'} className={css.goBackBtn}>
                         <BsArrowLeftCircleFill className={css.backArrow} />
                         Go back
                     </Link>
