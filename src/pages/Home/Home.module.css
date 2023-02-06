@@ -5,8 +5,8 @@
 .trending__header {
     margin: 0;
     font-size: 38px;
-    font-weight: 400;
-    color: rgb(0, 49, 0);
+    font-weight: 700;
+    color: var(--title-text-color);
 }
 
 .trending__list {
