@@ -14,7 +14,7 @@
     gap: 25px;
     padding-right: 15px;
     
-    border: 2px solid var(--dark-text-color);
+    border: 1px solid var(--dark-text-color);
     border-radius: 4px;
 
     width: calc((100% - 90px) / 3);
