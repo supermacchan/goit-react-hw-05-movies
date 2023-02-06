@@ -30,6 +30,7 @@
 .content {
     margin: 0;
     font-size: 18px;
+    color: var(--main-text-color);
 }
 
 .empty {
