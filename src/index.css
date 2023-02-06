@@ -19,8 +19,9 @@ code {
   --main-bg-color: #E9E9E9;
   --main-text-color: #000;
   --title-text-color: #B92009;
-  --light-bg-color: #FBF8F8;
+  --dark-bg-color: #000;
   --dark-text-color: #390800;
+  --light-text-color: #E9E9E9;
   --main-accent-color: #B92009;
   --secondary-accent-color: #E81F00;
 }
