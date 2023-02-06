@@ -1,10 +1,10 @@
 .header {
-    padding: 25px;
+    padding: 20px;
     -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.57);
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.57);
 
-    background-color: rgb(196, 245, 200);
+    background-color: var(--light-bg-color);
 }
 
 .header__nav {
@@ -23,14 +23,15 @@
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
-    color: black;
+    color: var(--dark-text-color);
+    transition: color 250ms ease;
 }
 
-.header__link.active,
+.header__link.active {
+    color: var(--secondary-accent-color);
+}
+
+.header__link:hover,
 .header__link:focus {
-    color: green;
-}
-
-.header__link:hover {
-    color: rgb(1, 82, 1);
+    color: var(--main-accent-color);
 }

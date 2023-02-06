@@ -12,16 +12,16 @@
 .icon {
     display: inline;
     margin-right: 13px;
-    color: green;
+    color: var(--main-accent-color);
 }
 
 .link {
-    text-decoration: underline;
+    text-decoration: none;
     color: var(--main-text-color);
+    transition: color 500ms ease;
 }
 
 .link:hover,
 .link:focus {
-    color: darkgreen;
-    text-decoration: none;
+    color: var(--main-accent-color);
 }
