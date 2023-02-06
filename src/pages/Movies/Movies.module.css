@@ -23,18 +23,16 @@
     padding: 7px 15px;
     margin-left: 15px;
     background-color: var(--main-accent-color);
-    color: var(--light-bg-color);
-    border: 1px solid transparent;
+    color: var(--light-text-color);
+    border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: color 250ms ease,
-    background-color 250ms ease,
-    border 250ms ease;
+    background-color 250ms ease;
 }
 
 .button:hover,
 .button:focus {
-    background-color: var(--light-bg-color);
-    color: var(--dark-text-color);
-    border: 1px solid var(--dark-text-color);
+    background-color: var(--dark-text-color);
+    color: var(--secondary-accent-color);
 }
