@@ -18,7 +18,7 @@
     cursor: pointer;
     font-size: 15px;
     text-decoration: none;
-    
+
     transition: color 250ms ease,
     background-color 250ms ease;
 }
@@ -39,7 +39,7 @@
     margin-top: 20px;
     padding-right: 25px;    
 
-    border: 2px solid var(--dark-text-color);
+    border: 1px solid var(--dark-text-color);
     border-radius: 4px;
 }
 
