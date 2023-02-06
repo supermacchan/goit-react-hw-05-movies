@@ -12,7 +12,7 @@
 .review {
     padding: 15px;
     
-    border: 2px solid darkgreen;
+    border: 1px solid var(--dark-text-color);
     border-radius: 4px;
     
     width: calc((100% - 90px) / 2);
@@ -22,7 +22,7 @@
 .author {
     margin-top: 0;
     margin-bottom: 20px;
-    color: darkgreen;
+    color: var(--title-text-color);
     font-size: 22px;
     font-weight: 500;
 }
@@ -34,7 +34,7 @@
 
 .empty {
     margin: 20px 0;
-    color: darkgreen;
+    color: var(--title-text-color);
     font-size: 22px;
     font-weight: 500;
 }
