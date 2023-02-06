@@ -18,6 +18,9 @@
     cursor: pointer;
     font-size: 15px;
     text-decoration: none;
+    
+    transition: color 250ms ease,
+    background-color 250ms ease;
 }
 
 .backArrow {
@@ -26,7 +29,7 @@
 
 .goBackBtn:hover,
 .goBackBtn:focus {
-    background-color: var(--dark-text-color);
+    background-color: var(--dark-bg-color);
     color: var(--secondary-accent-color);
 }
 
@@ -93,10 +96,12 @@
     cursor: pointer;
     font-size: 15px;
     text-decoration: none;
+    transition: color 250ms ease,
+    background-color 250ms ease;
 }
 
 .link:hover,
 .link:focus {
-    background-color: var(--dark-text-color);
+    background-color: var(--dark-bg-color);
     color: var(--secondary-accent-color);
 }

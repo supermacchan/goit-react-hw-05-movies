@@ -33,6 +33,6 @@
 
 .button:hover,
 .button:focus {
-    background-color: var(--dark-text-color);
+    background-color: var(--dark-bg-color);
     color: var(--secondary-accent-color);
 }

@@ -36,7 +36,7 @@ const Cast = () => {
                                     className={css.photo}
                                 />
                                 : <img
-                                    src="https://dummyimage.com/500x750/C4F5C8/083004.jpg&text=No+Photo"
+                                    src="https://dummyimage.com/500x750/000/fff.jpg&text=Oops!+No+Photo"
                                     alt=""
                                     width="180"
                                     className={css.photo}
