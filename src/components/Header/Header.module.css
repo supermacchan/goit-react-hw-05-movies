@@ -27,10 +27,6 @@
     transition: color 250ms ease;
 }
 
-.header__link.active {
-    color: var(--secondary-accent-color);
-}
-
 .header__link:hover,
 .header__link:focus {
     color: var(--main-accent-color);
